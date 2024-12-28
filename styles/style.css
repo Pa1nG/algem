@@ -59,7 +59,7 @@ main {
     inset -5px -5px 10px #444;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     #start {
         width: 100px;
         height: 40px;
@@ -79,7 +79,7 @@ main {
     }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 480px) {
     #start {
         width: 80px;
         height: 35px;
