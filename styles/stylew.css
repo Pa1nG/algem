@@ -1,0 +1,108 @@
+body {
+    background: #f8f9fa;
+    height: 100vh;
+    margin: 10px;
+} 
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #212529; 
+}
+
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#start {
+    margin: 12px;
+    height: 50px;
+    border-radius: 10px;
+    background: #e9ecef;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px -5px 15px #ffffff, 5px 5px 15px #d3d3d3, inset 5px 5px 10px #d3d3d3,
+        inset -5px -5px 10px #ffffff;
+    font-family: "Damion", cursive;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    color: #495057; 
+    transition: 500ms;
+    width: 130px;
+}
+
+#theme {
+    margin: 12px;
+    height: 50px;
+    border-radius: 10px;
+    background: #e9ecef;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -5px -5px 15px #ffffff, 5px 5px 15px #d3d3d3, inset 5px 5px 10px #d3d3d3,
+        inset -5px -5px 10px #ffffff;
+    font-family: "Damion", cursive;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    color: #495057; 
+    transition: 500ms;
+    width: 130px;
+}
+
+#start:hover, #theme:hover {
+    box-shadow: -5px -5px 15px #ffffff, 5px 5px 15px #d3d3d3, inset 5px 5px 10px #d3d3d3,
+    inset -5px -5px 10px #ffffff;
+}
+
+@media (max-width: 768px) {
+    #start {
+        width: 100px;
+        height: 40px;
+        font-size: 14px;
+    }
+    #theme {
+        width: 110px;
+        height: 40px;
+        font-size: 14px;
+    }
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    #start {
+        width: 80px;
+        height: 35px;
+        font-size: 12px;
+    }
+    #theme {
+        width: 100px;
+        height: 35px;
+        font-size: 12px;
+    }
+    header {
+        margin-top: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+    h2 {
+        font-size: 1em;
+    }
+    #start {
+        width: 100px;
+        height: 35px;
+        font-size: 12px;
+    }
+}
