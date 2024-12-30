@@ -1,10 +1,10 @@
 const ticketTopics = [
     "Матрицы и действия над ними. Свойства.",
     "Определители 2 и 3 порядков. Миноры и алгебраические дополнения. Свойства 1-7 (с доказательствами).",
-    "Определители 2 и 3 порядков. Теорема о разложении определителя по элементам строки или столбца. Замечание к теореме.",
+    "Теорема о разложении определителя по элементам строки или столбца. Замечание к теореме.",
     "Обратная матрица. Теорема.",
     "Система n линейных уравнений с n неизвестными. Теорема Крамера.",
-    "Система n линейных уравнений с n неизвестными. Матричный способ решения. Однородная система линейных уравнений.",
+    "Матричный способ решения. Однородная система линейных уравнений.",
     "Многомерное линейное (векторное) пространство. Линейная зависимость и независимость векторов. Теорема.",
     "Ранг матрицы. Связь ранга матрицы с линейной зависимостью (независимостью) векторов (теорема).",
     "Ранг матрицы (определения). Теорема об элементарных преобразованиях матрицы.",
@@ -87,32 +87,40 @@ const theme = document.getElementById("theme");
 
 buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
-        const topic = ticketTopics[index]; 
+        const topic = ticketTopics[index];
         displayCard(index, topic);
     });
 });
-theme.addEventListener('click', () => {
-    window.location.href = 'cards.html';
-})
+
+
+theme.addEventListener("click", () => {
+    window.location.href = "cards.html";
+});
+
+
 randomButton.addEventListener("click", () => {
-    const randomIndex = Math.floor(Math.random() * ticketTopics.length); 
-    const topic = ticketTopics[randomIndex]; 
+    const randomIndex = Math.floor(Math.random() * ticketTopics.length);
+    const topic = ticketTopics[randomIndex];
     displayCard(randomIndex, topic);
 });
 
 function displayCard(index, topic) {
-    const theory = ticketTheory[index] || "Теория отсутствует:)";
+    const theory = ticketTheory[index] || "Теория отсутствует";
     cardFront.innerHTML = `<p class="title">Тема ${index + 1}</p><p>${topic}</p>`;
     cardBack.innerHTML = `<p class="title">Тема ${index + 1} - Основная теория</p><p>${theory}</p>`;
-    card.style.display = "grid"; 
-
+    card.style.display = "grid";
+}
 
 card.addEventListener("click", () => {
-    card.classList.toggle("flipped"); 
+    card.classList.toggle("flipped");
 });
 
-
 document.addEventListener("click", (event) => {
+    if (!card.contains(event.target) && ![...buttons].includes(event.target) && event.target !== randomButton) {
+        card.style.display = "none";
+        card.classList.remove("flipped"); 
+    }
+});document.addEventListener("click", (event) => {
     if (!card.contains(event.target) && ![...buttons].includes(event.target) && event.target !== randomButton) {
         card.style.display = "none"; 
     }
