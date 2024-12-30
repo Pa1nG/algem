@@ -87,40 +87,32 @@ const theme = document.getElementById("theme");
 
 buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
-        const topic = ticketTopics[index];
+        const topic = ticketTopics[index]; 
         displayCard(index, topic);
     });
 });
-
-
-theme.addEventListener("click", () => {
-    window.location.href = "cardsw.html";
-});
-
-
+theme.addEventListener('click', () => {
+    window.location.href = 'cardsw.html';
+})
 randomButton.addEventListener("click", () => {
-    const randomIndex = Math.floor(Math.random() * ticketTopics.length);
-    const topic = ticketTopics[randomIndex];
+    const randomIndex = Math.floor(Math.random() * ticketTopics.length); 
+    const topic = ticketTopics[randomIndex]; 
     displayCard(randomIndex, topic);
 });
 
 function displayCard(index, topic) {
-    const theory = ticketTheory[index] || "Теория отсутствует";
-    cardFront.innerHTML = `<p class="title">Тема ${index + 1}</p><p>${topic}</p>`;
-    cardBack.innerHTML = `<p class="title">Тема ${index + 1} - Основная теория</p><p>${theory}</p>`;
-    card.style.display = "grid";
-}
+    const theory = ticketTheory[index] || "Теория отсутствует"; 
+    cardFront.innerHTML = <p class="title">Тема ${index + 1}</p><p>${topic}</p>;
+    cardBack.innerHTML = <p class="title">Тема ${index + 1} - Основная теория</p><p>${theory}</p>;
+    card.style.display = "grid"; 
+
 
 card.addEventListener("click", () => {
-    card.classList.toggle("flipped");
+    card.classList.toggle("flipped"); 
 });
 
+
 document.addEventListener("click", (event) => {
-    if (!card.contains(event.target) && ![...buttons].includes(event.target) && event.target !== randomButton) {
-        card.style.display = "none";
-        card.classList.remove("flipped"); 
-    }
-});document.addEventListener("click", (event) => {
     if (!card.contains(event.target) && ![...buttons].includes(event.target) && event.target !== randomButton) {
         card.style.display = "none"; 
     }
