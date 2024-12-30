@@ -1,10 +1,10 @@
 const ticketTopics = [
     "Матрицы и действия над ними. Свойства.",
     "Определители 2 и 3 порядков. Миноры и алгебраические дополнения. Свойства 1-7 (с доказательствами).",
-    "Определители 2 и 3 порядков. Теорема о разложении определителя по элементам строки или столбца. Замечание к теореме.",
+    "Теорема о разложении определителя по элементам строки или столбца. Замечание к теореме.",
     "Обратная матрица. Теорема.",
     "Система n линейных уравнений с n неизвестными. Теорема Крамера.",
-    "Система n линейных уравнений с n неизвестными. Матричный способ решения. Однородная система линейных уравнений.",
+    "Матричный способ решения. Однородная система линейных уравнений.",
     "Многомерное линейное (векторное) пространство. Линейная зависимость и независимость векторов. Теорема.",
     "Ранг матрицы. Связь ранга матрицы с линейной зависимостью (независимостью) векторов (теорема).",
     "Ранг матрицы (определения). Теорема об элементарных преобразованиях матрицы.",
@@ -77,7 +77,6 @@ const ticketTheory = [
     "Цилиндрические поверхности — это поверхности, получаемые при движении прямой вдоль заданной кривой. Примеры: цилиндры и конусы."
 ];
 
-
 const buttons = document.querySelectorAll("btn button");
 const card = document.getElementById("flip-card");
 const cardFront = document.querySelector(".flip-card-front");
@@ -93,7 +92,7 @@ buttons.forEach((button, index) => {
 });
 theme.addEventListener('click', () => {
     window.location.href = 'cardsw.html';
-})
+});
 randomButton.addEventListener("click", () => {
     const randomIndex = Math.floor(Math.random() * ticketTopics.length); 
     const topic = ticketTopics[randomIndex]; 
@@ -106,15 +105,19 @@ function displayCard(index, topic) {
     cardBack.innerHTML = `<p class="title">Тема ${index + 1} - Основная теория</p><p>${theory}</p>`;
     card.style.display = "grid"; 
 
+    card.removeEventListener("click", flipCard);
+    card.addEventListener("click", flipCard);
 
-card.addEventListener("click", () => {
+    document.removeEventListener("click", hideCard);
+    document.addEventListener("click", hideCard);
+}
+
+function flipCard() {
     card.classList.toggle("flipped"); 
-});
+}
 
-
-document.addEventListener("click", (event) => {
+function hideCard(event) {
     if (!card.contains(event.target) && ![...buttons].includes(event.target) && event.target !== randomButton) {
         card.style.display = "none"; 
     }
-});
 }
