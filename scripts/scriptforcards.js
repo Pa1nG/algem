@@ -78,7 +78,7 @@ const ticketTheory = [
 ];
 
 
-const buttons = document.querySelectorAll(".buttons button");
+const buttons = document.querySelectorAll("btn button");
 const card = document.getElementById("flip-card");
 const cardFront = document.querySelector(".flip-card-front");
 const cardBack = document.querySelector("#flip-card-back");
